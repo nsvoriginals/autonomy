@@ -1,0 +1,23 @@
+[package]
+name = "autonomy-vehicle"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Base vehicle abstraction and traits"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-simulation-core = { path = "../simulation-core" }
+autonomy-physics = { path = "../physics" }
+autonomy-sensors = { path = "../sensors" }
+autonomy-estimation = { path = "../estimation" }
+autonomy-planning = { path = "../planning" }
+autonomy-control = { path = "../control" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+nalgebra = { workspace = true }
+glam = { workspace = true }
+uuid = { workspace = true }
+parking_lot = { workspace = true }
+smallvec = { workspace = true }

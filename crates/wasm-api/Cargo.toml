@@ -1,0 +1,11 @@
+[package]
+name = "autonomy-wasm-api"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "WASM ABI definitions for autonomy algorithms"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+serde = { workspace = true, features = ["derive"] }
+postcard = { workspace = true }

@@ -1,0 +1,17 @@
+[package]
+name = "autonomy-fleet"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Fleet management and coordination"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-simulation-core = { path = "../simulation-core" }
+autonomy-vehicle = { path = "../vehicle" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+uuid = { workspace = true }
+parking_lot = { workspace = true }
+dashmap = { workspace = true }

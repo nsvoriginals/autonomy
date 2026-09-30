@@ -1,0 +1,18 @@
+[package]
+name = "autonomy-planning"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Path planning and trajectory generation"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-simulation-core = { path = "../simulation-core" }
+autonomy-environment = { path = "../environment" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+nalgebra = { workspace = true }
+petgraph = "0.6"
+uuid = { workspace = true }
+parking_lot = { workspace = true }

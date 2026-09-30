@@ -1,0 +1,12 @@
+[package]
+name = "autonomy-algo-avoidance"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Example obstacle avoidance algorithm"
+
+[dependencies]
+autonomy-common = { path = "../../crates/common" }
+autonomy-wasm-api = { path = "../../crates/wasm-api" }
+serde = { workspace = true, features = ["derive"] }
+postcard = { workspace = true }

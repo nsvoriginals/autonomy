@@ -1,0 +1,115 @@
+metadata:
+  name: "gps_denied_test"
+  description: "Test GPS denial recovery and dead reckoning"
+  seed: 12345
+  duration: 300
+  version: "1.0"
+
+environment:
+  terrain:
+    type: "Flat"
+    height: 0.0
+  weather:
+    preset: "Clear"
+  time_of_day: 12.0
+  gravity: 9.80665
+
+vehicles:
+  - id: "uav-001"
+    vehicle_type: "Uav"
+    callsign: "UAV-001"
+    position: [0.0, 50.0, 0.0]
+    velocity: [0.0, 0.0, 0.0]
+    orientation: 0.0
+    battery: 1.0
+    autonomy_config:
+      algorithm_id: "navigation-v1"
+      wasm_module: "navigation.wasm"
+      parameters:
+        waypoints: [[100.0, 50.0, 100.0], [200.0, 50.0, 200.0], [300.0, 50.0, 100.0]]
+        reached_threshold: 5.0
+    sensors:
+      - sensor_type: "Imu"
+        position: [0.0, 0.0, 0.0]
+        orientation: [0.0, 0.0, 0.0]
+        update_rate: 200.0
+        noise_params:
+          gaussian_std: 0.01
+          bias: 0.0
+          dropout_prob: 0.0
+          latency_ms: 2.0
+          latency_jitter_ms: 0.5
+      - sensor_type: "Gps"
+        position: [0.0, 0.0, 0.0]
+        orientation: [0.0, 0.0, 0.0]
+        update_rate: 10.0
+        noise_params:
+          gaussian_std: 1.5
+          bias: 0.0
+          dropout_prob: 0.0
+          latency_ms: 50.0
+          latency_jitter_ms: 10.0
+      - sensor_type: "Barometer"
+        position: [0.0, 0.0, 0.0]
+        orientation: [0.0, 0.0, 0.0]
+        update_rate: 50.0
+        noise_params:
+          gaussian_std: 1.0
+          bias: 0.0
+          dropout_prob: 0.0
+          latency_ms: 10.0
+          latency_jitter_ms: 2.0
+      - sensor_type: "Magnetometer"
+        position: [0.0, 0.0, 0.0]
+        orientation: [0.0, 0.0, 0.0]
+        update_rate: 50.0
+        noise_params:
+          gaussian_std: 0.1
+          bias: 0.0
+          dropout_prob: 0.0
+          latency_ms: 10.0
+          latency_jitter_ms: 2.0
+
+zones:
+  - id: "lz-001"
+    zone_type: "LandingZone"
+    name: "Home Base"
+    center: [0.0, 0.0, 0.0]
+    radius: 10.0
+    height: 5.0
+    properties: {}
+
+missions:
+  - id: "mission-001"
+    mission_type: "waypoint"
+    assigned_vehicles: ["uav-001"]
+    tasks:
+      - id: "task-001"
+        task_type: "navigate"
+        position: [100.0, 50.0, 100.0]
+        priority: 1
+        parameters: {}
+      - id: "task-002"
+        task_type: "navigate"
+        position: [200.0, 50.0, 200.0]
+        priority: 1
+        parameters: {}
+      - id: "task-003"
+        task_type: "navigate"
+        position: [300.0, 50.0, 100.0]
+        priority: 1
+        parameters: {}
+    parameters: {}
+
+failures:
+  - time: 30.0
+    target: "uav-001"
+    failure_type: "GpsLoss"
+    duration: 60.0
+    parameters: {}
+
+network:
+  max_range: 1000.0
+  default_latency_ms: 50.0
+  default_loss_rate: 0.01
+  partitions: []

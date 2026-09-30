@@ -1,0 +1,17 @@
+[package]
+name = "autonomy-networking"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Communication simulation: latency, packet loss, partitions"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-simulation-core = { path = "../simulation-core" }
+autonomy-fleet = { path = "../fleet" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+uuid = { workspace = true }
+parking_lot = { workspace = true }
+rand = { workspace = true }

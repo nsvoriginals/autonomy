@@ -1,0 +1,19 @@
+[package]
+name = "autonomy-fleet-console"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Fleet console application"
+
+[dependencies]
+autonomy-common = { path = "../../crates/common" }
+autonomy-simulation-core = { path = "../../crates/simulation-core" }
+autonomy-fleet = { path = "../../crates/fleet" }
+autonomy-telemetry = { path = "../../crates/telemetry" }
+anyhow = { workspace = true }
+clap = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+bevy = { workspace = true }
+egui = "0.29"

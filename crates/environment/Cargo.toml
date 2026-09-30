@@ -1,0 +1,19 @@
+[package]
+name = "autonomy-environment"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "3D environment model: terrain, buildings, zones, coordinate frames"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-simulation-core = { path = "../simulation-core" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+nalgebra = { workspace = true }
+glam = { workspace = true }
+rand = { workspace = true }
+uuid = { workspace = true }
+parking_lot = { workspace = true }
+bevy = { workspace = true }

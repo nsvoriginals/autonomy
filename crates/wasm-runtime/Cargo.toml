@@ -1,0 +1,16 @@
+[package]
+name = "autonomy-wasm-runtime"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "WASM runtime for autonomy algorithms"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-wasm-api = { path = "../wasm-api" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+wasmtime = { workspace = true }
+postcard = { workspace = true }
+parking_lot = { workspace = true }

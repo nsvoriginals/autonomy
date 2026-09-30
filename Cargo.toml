@@ -1,0 +1,83 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/common",
+    "crates/simulation-core",
+    "crates/physics",
+    "crates/environment",
+    "crates/vehicle",
+    "crates/vehicle-uav",
+    "crates/vehicle-ugv",
+    "crates/sensors",
+    "crates/estimation",
+    "crates/planning",
+    "crates/control",
+    "crates/fleet",
+    "crates/networking",
+    "crates/telemetry",
+    "crates/scenarios",
+    "crates/wasm-runtime",
+    "crates/wasm-api",
+    "crates/replay",
+    "crates/metrics",
+    "crates/persistence",
+    "apps/simulator",
+    "apps/fleet-console",
+    "apps/scenario-runner",
+    "apps/benchmark",
+    "algorithms/example-navigation",
+    "algorithms/example-formation",
+    "algorithms/example-avoidance",
+]
+
+[workspace.dependencies]
+anyhow = { version = "1.0", features = ["backtrace"] }
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9"
+toml = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt", "json"] }
+tokio = { version = "1.0", features = ["full"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+nalgebra = { version = "0.33", features = ["serde"] }
+glam = "0.26"
+rand = { version = "0.8", features = ["std", "small_rng"] }
+rand_distr = "0.4"
+wasmtime = { version = "25.0", features = ["component-model", "async"] }
+wit-bindgen = "0.37"
+parking_lot = "0.12"
+dashmap = "5.5"
+bytemuck = "1.0"
+crossbeam = "0.8"
+smallvec = { version = "1.0", features = ["serde"] }
+arc-swap = "1.6"
+clap = { version = "4.0", features = ["derive", "env"] }
+config = "0.14"
+bevy = { version = "0.15", features = ["bevy_winit", "bevy_pbr", "bevy_gltf", "bevy_scene", "bevy_render"] }
+rapier3d = { version = "0.23", features = ["parallel", "enhanced-determinism"] }
+rustls = "0.23"
+tokio-rustls = "0.26"
+web-time = "1.0"
+instant = "0.1"
+flume = "0.12"
+bytes = "1.0"
+postcard = "1.0"
+bincode = "1.3"
+ahash = "0.8"
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.release]
+opt-level = 3
+debug = true
+lto = "thin"
+codegen-units = 1
+
+[profile.bench]
+opt-level = 3
+debug = true
+lto = "thin"

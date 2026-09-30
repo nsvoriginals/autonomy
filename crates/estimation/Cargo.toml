@@ -1,0 +1,18 @@
+[package]
+name = "autonomy-estimation"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "State estimation: dead reckoning, complementary filter, EKF"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-simulation-core = { path = "../simulation-core" }
+autonomy-sensors = { path = "../sensors" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+nalgebra = { workspace = true }
+rand = { workspace = true }
+parking_lot = { workspace = true }
+smallvec = { workspace = true }

@@ -1,0 +1,16 @@
+[package]
+name = "autonomy-scenarios"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Scenario definition and generation"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-environment = { path = "../environment" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_yaml = { workspace = true }
+uuid = { workspace = true }
+rand = { workspace = true }

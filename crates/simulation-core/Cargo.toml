@@ -1,0 +1,19 @@
+[package]
+name = "autonomy-simulation-core"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Core simulation engine with deterministic timestep and event bus"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+tokio = { workspace = true }
+flume = { workspace = true }
+parking_lot = { workspace = true }
+dashmap = { workspace = true }
+crossbeam = { workspace = true }
+tracing = { workspace = true }
+smallvec = { workspace = true }

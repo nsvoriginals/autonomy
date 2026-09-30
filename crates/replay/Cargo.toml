@@ -1,0 +1,17 @@
+[package]
+name = "autonomy-replay"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Deterministic recording and replay"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-simulation-core = { path = "../simulation-core" }
+autonomy-telemetry = { path = "../telemetry" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+bincode = { workspace = true }
+zstd = "0.13"
+parking_lot = { workspace = true }

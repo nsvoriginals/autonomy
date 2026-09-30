@@ -1,0 +1,17 @@
+[package]
+name = "autonomy-persistence"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Persistence layer for scenarios and recordings"
+
+[dependencies]
+autonomy-common = { path = "../common" }
+autonomy-scenarios = { path = "../scenarios" }
+autonomy-replay = { path = "../replay" }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+sqlx = { version = "0.7", features = ["runtime-tokio", "sqlite", "chrono", "uuid", "json"] }
+tokio = { workspace = true }
+uuid = { workspace = true }
